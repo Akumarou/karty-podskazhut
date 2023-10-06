@@ -17,12 +17,14 @@ html {
 }
 
 .page {
+  display: flex;
+  flex-direction: column;
   min-inline-size: 360px;
-  margin: 0 auto;
   width: 100%;
   height: 100%;
-  max-width: 1440px;
   background-color: var(--bg-color, #f3efec);
+  color: var(--text-color, #312a4e);
+  flex: 1;
 }
 
 p,
@@ -153,10 +155,6 @@ a:focus-within {
   margin-bottom: 1.5em;
 }
 
-.content__text-block.content__paragraph:last-of-type {
-  margin-bottom: 0;
-}
-
 .content__text-block > a {
   color: inherit;
   text-decoration-line: underline;
@@ -190,6 +188,7 @@ a:focus-within {
 
 .content__list-item::before {
   margin-right: 10px;
+  flex: 0 0 15px;
   content: "";
   height: 15px;
   width: 15px;
@@ -262,10 +261,12 @@ a:focus-within {
 
 .content__card-title {
   text-align: center;
-  font-size: 60px;
+  font-size: clamp(3.75rem, 3.75rem + 0vw, 3.75rem);
   font-style: normal;
   font-weight: 600;
   line-height: 90%;
+  padding-left: 14vw;
+  padding-right: 14vw;
 }
 
 .colored-text {
@@ -285,6 +286,10 @@ a:focus-within {
   background-color: var(--accent-color, #ffab6b);
 }
 
+.content__figure + .content__text-block {
+  line-height: 1.13em;
+}
+
 .theme_dark .colored-text::after {
   background-image: url("../images/pattern.svg");
 }
@@ -300,6 +305,7 @@ a:focus-within {
 }
 
 .footer {
+  flex-shrink: 0;
   border-top: 1px solid var(--text-color, #312a4e);
   display: flex;
   justify-content: center;
@@ -310,7 +316,7 @@ a:focus-within {
 }
 
 .footer__copyright {
-  color: var(--text-color, #312a4e);
+  color: currentColor;
   font-family: var(--main-font, "Raleway");
   font-size: 18px;
   font-style: normal;
@@ -324,40 +330,11 @@ a:focus-within {
   --accent-color: transparent;
 }
 
-@media (width>360px) {
-  .content__text-block:nth-last-of-type(2) {
-    line-height: 1.5em;
-  }
-
-  .content__title:first-of-type {
-    margin-top: 6.4vi;
-  }
-
-  .content__title:nth-last-of-type(2),
-  .content__title:last-of-type {
-    margin-top: 6.4vi;
-  }
-
-  .content__title:last-of-type {
-    margin-bottom: 2.3vw;
-  }
+.content__title-first,
+.content__title-last {
+  margin-top: 6.4vi;
 }
 
-@media (width <= 360px) {
-  .content__title {
-    margin-bottom: 3.5vw;
-  }
-  .content__title:last-of-type {
-    margin-bottom: 2vw;
-  }
-
-  .content__text-block.content__paragraph {
-    margin-bottom: 1.1em;
-  }
-
-  .content__card {
-    padding-top: 8.5%;
-    padding-left: 14vw;
-    padding-right: 14vw;
-  }
+.content__paragraph-last {
+  margin-bottom: 0;
 }
