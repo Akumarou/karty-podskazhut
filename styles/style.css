@@ -88,6 +88,17 @@ figure {
   line-height: normal;
 }
 
+.header__theme-button:hover {
+  text-decoration: underline;
+}
+
+.header__theme-button:focus-within,
+a:focus-within {
+  outline: none;
+  border-radius: 0;
+  border: 1px solid var(--text-color, #312a4e);
+}
+
 .header__theme-button:disabled {
   pointer-events: none;
 }
@@ -184,17 +195,11 @@ figure {
   width: 15px;
   background-image: url(../images/marker-light.svg);
   background-position: center;
-  background-size: contain;
+  background-size: cover;
 }
 
 .theme_dark .content__list-item::before {
-  margin-right: 10px;
-  content: "";
-  height: 15px;
-  width: 15px;
   background-image: url(../images/marker-dark.svg);
-  background-position: center;
-  background-size: contain;
 }
 
 .content__paragraph.content__text-block_type_first-lettered::first-letter {
@@ -336,5 +341,25 @@ figure {
 
   .content__title:last-of-type {
     margin-bottom: 2.3vw;
+  }
+}
+
+@media (width <= 360px) {
+  .content__title {
+    margin-bottom: 3.5vw;
+  }
+  .content__title:last-of-type {
+    margin-bottom: 2vw;
+  }
+
+  .content__text-block.content__paragraph {
+    margin-bottom: 1.1em;
+  }
+
+  .content__card {
+    padding-top: 18.5%;
+    padding-bottom: 10.5%;
+    padding-left: 14vw;
+    padding-right: 14vw;
   }
 }
